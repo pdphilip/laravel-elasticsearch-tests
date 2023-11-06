@@ -6,7 +6,7 @@
 - Elasticsearch 8.10
 - MongoDB 5+
 
-Docker environment (https://github.com/pdphilip/docker-LAMP-MR)[https://github.com/pdphilip/docker-LAMP-MR]
+Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.com/pdphilip/docker-LAMP-MR)
 
 ```
 - "laravel/framework": "^10.10"
