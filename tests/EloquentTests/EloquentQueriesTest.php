@@ -1,10 +1,10 @@
 <?php
 
-use Tests\Models\Product;
-use Tests\Factories\ProductFactory;
+use Illuminate\Support\Carbon;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
-use Illuminate\Support\Carbon;
+use Tests\Factories\ProductFactory;
+use Tests\Models\Product;
 
 $fieldChecks = [
     'status'                        => [

@@ -2,9 +2,9 @@
 
 namespace Tests\Factories;
 
-use Tests\Models\BlogPost;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use Tests\Models\BlogPost;
 
 class BlogPostFactory extends Factory
 {

@@ -3,7 +3,6 @@
 namespace Tests\Models;
 
 use PDPhilip\Elasticsearch\Eloquent\Model;
-use Tests\Models\Company;
 
 /**
  * App\Models\

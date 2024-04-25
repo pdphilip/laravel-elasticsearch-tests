@@ -2,9 +2,9 @@
 
 namespace Tests\Factories;
 
-use Tests\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use Tests\Models\Client;
 
 class ClientFactory extends Factory
 {

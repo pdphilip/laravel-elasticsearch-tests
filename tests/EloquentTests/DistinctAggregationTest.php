@@ -1,13 +1,13 @@
 <?php
 
-use Tests\Models\User;
-use Tests\Models\UserLog;
-use Tests\Models\Company;
+use PDPhilip\Elasticsearch\Schema\Schema;
+use Tests\Factories\CompanyFactory;
 use Tests\Factories\UserFactory;
 use Tests\Factories\UserLogFactory;
-use Tests\Factories\CompanyFactory;
-use PDPhilip\Elasticsearch\Schema\Schema;
 use Tests\Migrations\MysqlMigration;
+use Tests\Models\Company;
+use Tests\Models\User;
+use Tests\Models\UserLog;
 
 beforeEach(function () {
     $this->companies = 3;

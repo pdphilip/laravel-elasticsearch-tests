@@ -1,48 +1,50 @@
 # Laravel X Elasticsearch plugin Tests (PEST)
 
-## Pre-requisites
-
-- Laravel 10
-- Elasticsearch 8.10
-- MongoDB 5+
-
 Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.com/pdphilip/docker-LAMP-MR)
 
-```
-- "laravel/framework": "^10.10"
-```
-
-### Clone
+## Install Laravel
 
 ```bash
-git clone https://github.com/pdphilip/laravel-elasticsearch-tests.git my_tests
-cd my_tests
-rm -rf .git
-```
-### Select laravel version
-Laravel 8
-```bash
-cp 8.composer.json composer.json 
-```
-Laravel 9
-```bash
-cp 7.composer.json composer.json 
-```
-Laravel 10
-```bash
-cp 10.composer.json composer.json 
-```
-Laravel 11
-```bash
-cp 11.composer.json composer.json 
+composer create-project laravel/laravel laravel_tests "^8"
+composer create-project laravel/laravel laravel_tests "^9"
+composer create-project laravel/laravel laravel_tests "^10"
+composer create-project laravel/laravel laravel_tests "^11"
+
 ```
 
-### Install
+## Config
 
+#### Require deps:
 ```bash
-composer install
-cp .env.example .env
-php artisan key:generate
+cd laravel_tests
+composer require pestphp/pest-plugin-laravel rkondratuk/geo-math-php
+```
+
+#### Require Elasticsearch
+```bash
+composer require pdphilip/elasticsearch
+```
+
+#### Require Mongo (optional)
+Laravel 8 and 9
+```bash
+composer require jenssegers/mongodb
+```
+Laravel 10+
+```bash
+composer require mongodb/laravel-mongodb
+```
+
+### Add tests and config
+```bash
+rm -rf tests
+rm phpunit.xml
+tm config/database.php
+git clone https://github.com/pdphilip/laravel-elasticsearch-tests.git
+mv laravel-elasticsearch-tests/phpunit.xml phpunit.xml
+mv laravel-elasticsearch-tests/database.php config/database.php
+mv laravel-elasticsearch-tests/tests tests
+rm -rf laravel-elasticsearch-tests
 ```
 
 
@@ -76,22 +78,6 @@ ES_INDEX_PREFIX=laravel_es_test
 
 ```
 
-### Install Elasticsearch
-
-```bash
-composer require pdphilip/elasticsearch
-```
-It will pull the current 3.x version for your laravel version
-
-### Install Mongo (optional)
-Laravel 8 and 9
-```bash
-composer require jenssegers/mongodb
-```
-Laravel 10+
-```bash
-composer require mongodb/laravel-mongodb
-```
 
 ### Run migrations
 

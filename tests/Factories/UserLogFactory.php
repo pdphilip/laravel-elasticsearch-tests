@@ -2,9 +2,9 @@
 
 namespace Tests\Factories;
 
-use Tests\Models\UserLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use Tests\Models\UserLog;
 
 class UserLogFactory extends Factory
 {

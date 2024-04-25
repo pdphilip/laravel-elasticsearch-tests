@@ -4,7 +4,6 @@ namespace Tests\Models;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
-
 use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**

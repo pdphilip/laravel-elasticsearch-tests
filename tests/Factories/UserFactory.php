@@ -2,9 +2,9 @@
 
 namespace Tests\Factories;
 
-use Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Tests\Models\User;
 
 class UserFactory extends Factory
 {

@@ -1,20 +1,20 @@
 <?php
 
+use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
+use PDPhilip\Elasticsearch\Schema\Schema;
 use Tests\Factories\CompanyFactory;
 use Tests\Factories\CompanyProfileFactory;
 use Tests\Factories\UserFactory;
 use Tests\Factories\UserLogFactory;
 use Tests\Factories\UserProfileFactory;
-use Tests\Models\User;
+use Tests\Migrations\MysqlMigration;
+use Tests\Models\Avatar;
 use Tests\Models\Company;
+use Tests\Models\CompanyProfile;
+use Tests\Models\Photo;
+use Tests\Models\User;
 use Tests\Models\UserLog;
 use Tests\Models\UserProfile;
-use Tests\Models\CompanyProfile;
-use Tests\Models\Avatar;
-use Tests\Models\Photo;
-use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
-use PDPhilip\Elasticsearch\Schema\Schema;
-use Tests\Migrations\MysqlMigration;
 
 $skip = false;
 
