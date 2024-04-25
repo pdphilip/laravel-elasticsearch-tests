@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
-use Carbon\Carbon;
-use PDPhilip\Elasticsearch\Eloquent\Model;
+
+use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**
  * App\Models\Avatar
@@ -14,15 +14,20 @@ use PDPhilip\Elasticsearch\Eloquent\Model;
  * @property string $url
  * @property string $imageable_id
  * @property string $imageable_type
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
  ******Relationships*******
  * @property-read User $user
  *
+ ******Attributes*******
+ * @property-read mixed $status_name
+ * @property-read mixed $status_color
+ *
+ * @mixin \Eloquent
  *
  */
-class Avatar extends Model
+class Avatar extends Eloquent
 {
     protected $connection = 'elasticsearch';
     

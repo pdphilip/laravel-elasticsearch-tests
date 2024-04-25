@@ -43,11 +43,23 @@ return [
             'cloud_id'     => env('ES_CLOUD_ID', ''),
             'api_id'       => env('ES_API_ID', ''),
             'api_key'      => env('ES_API_KEY', ''),
-            'ssl_cert'     => env('ES_SSL_CERT', ''),
-            'index_prefix' => env('ES_INDEX_PREFIX', ''),
+            'ssl_cert'     => env('ES_SSL_CA', ''),
+            'ssl'          => [
+                'cert'          => env('ES_SSL_CERT', ''),
+                'cert_password' => env('ES_SSL_CERT_PASSWORD', ''),
+                'key'           => env('ES_SSL_KEY', ''),
+                'key_password'  => env('ES_SSL_KEY_PASSWORD', ''),
+            ],
+            'index_prefix' => env('ES_INDEX_PREFIX', false),
+            'options'      => [
+                'allow_id_sort'    => env('ES_OPT_ID_SORTABLE', false),
+                'ssl_verification' => env('ES_OPT_VERIFY_SSL', true),
+                'retires'          => env('ES_OPT_RETRIES', null),
+                'meta_header'      => env('ES_OPT_META_HEADERS', true),
+            ],
             'query_log'    => [
-                'index'      => 'laravel_query_logs_es10',
-                'error_only' => true,
+                'index'      => false, //Or provide a name for the logging index ex: 'laravel_query_logs'
+                'error_only' => true, //If false, then all queries are logged if the query_log index is set
             ],
         ],
         'mongodb'       => [

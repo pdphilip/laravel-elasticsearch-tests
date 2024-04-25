@@ -10,8 +10,6 @@ Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.c
 
 ```
 - "laravel/framework": "^10.10"
-- "pdphilip/elasticsearch": "^2.10"
-- "mongodb/laravel-mongodb": "^4.0"
 ```
 
 ## Installation
@@ -26,7 +24,7 @@ php artisan key:generate
 
 ```
 
-### Edit .env file to add database credentials
+### Edit .env file to add database credentials (mongodb optional)
 
 ```dotenv
 
@@ -50,11 +48,16 @@ ES_PASSWORD=
 ES_CLOUD_ID=
 ES_API_ID=
 ES_API_KEY=
-ES_SSL_CERT=
+ES_SSL_CA=
 ES_INDEX_PREFIX=laravel_es_test
 
-
 ```
+### Upgrade/Downgrade Laravel
+
+```bash
+composer require laravel/framework:8
+```
+
 
 ### Run migrations
 

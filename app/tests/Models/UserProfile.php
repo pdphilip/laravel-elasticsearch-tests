@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
 use Carbon\Carbon;
-use PDPhilip\Elasticsearch\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
+use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**
  * App\Models\UserProfile
@@ -17,14 +18,20 @@ use PDPhilip\Elasticsearch\Eloquent\Model;
  * @property string $address
  * @property string $timezone
  * @property integer $status
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
  ******Relationships*******
  * @property-read User $user
  *
+ ******Attributes*******
+ * @property-read mixed $status_name
+ * @property-read mixed $status_color
+ *
+ * @mixin \Eloquent
+ *
  */
-class UserProfile extends Model
+class UserProfile extends Eloquent
 {
     
     

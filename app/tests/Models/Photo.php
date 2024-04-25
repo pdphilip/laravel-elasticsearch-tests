@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,5 +30,5 @@ class Photo extends Model
     {
         return $this->morphTo();
     }
-
+    
 }

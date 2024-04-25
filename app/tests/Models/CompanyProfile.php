@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
-use Carbon\Carbon;
 use PDPhilip\Elasticsearch\Eloquent\Model;
 
 /**
- * App\Models\CompanyProfile
+ * App\Models\
  *
  ******Fields*******
  *
@@ -15,11 +14,15 @@ use PDPhilip\Elasticsearch\Eloquent\Model;
  * @property string $address
  * @property string $website
  * @property integer $status
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
  ******Relationships*******
  * @property-read Company $company
+ *
+ ******Attributes*******
+ *
+ * @mixin \Eloquent
  *
  */
 class CompanyProfile extends Model

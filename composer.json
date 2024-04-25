@@ -10,8 +10,6 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "mongodb/laravel-mongodb": "^4.0",
-        "pdphilip/elasticsearch": "^2.10",
         "rkondratuk/geo-math-php": "^1.0"
     },
     "require-dev": {

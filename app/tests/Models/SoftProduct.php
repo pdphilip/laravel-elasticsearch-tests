@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use PDPhilip\Elasticsearch\Eloquent\Model;
 use PDPhilip\Elasticsearch\Eloquent\SoftDeletes;
 
@@ -22,13 +23,19 @@ use PDPhilip\Elasticsearch\Eloquent\SoftDeletes;
  * @property string $color
  * @property bool $is_active
  * @property array $manufacturer
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
+ ******Relationships*******
+ * @property-read User $user
+ *
+ *
+ * @mixin \Eloquent
  *
  */
 class SoftProduct extends Model
 {
+//    const MAX_SIZE = 5;
     
     use SoftDeletes;
     
@@ -38,6 +45,14 @@ class SoftProduct extends Model
     protected $fillable = [
         'name', 'in_stock', 'is_active', 'status', 'color', 'manufacturer', 'price', 'orders', 'product_id',
     ];
+    
+    
+    //Relationships  =====================================
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     
     
 }

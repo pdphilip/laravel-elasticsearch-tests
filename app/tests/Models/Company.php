@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Models;
+namespace Tests\Models;
 
-use Carbon\Carbon;
 use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**
@@ -13,23 +12,43 @@ use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
  * @property string $_id
  * @property string $name
  * @property integer $status
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
  ******Relationships*******
- * @property-read User $users
- * @property-read UserLog $userLogs
- * @property-read CompanyProfile $companyProfile
+ * @property-read User $user
  * @property-read Avatar $avatar
+ * @property-read CompanyLog $companyLogs
+ * @property-read CompanyProfile $companyProfile
+ * @property-read EsPhoto $esPhotos
  * @property-read Photo $photos
+ * @property-read UserLog $userLogs
  * @property-read Client $clients
  *
+ *
+ ******Attributes*******
+ * @property-read mixed $status_name
+ * @property-read mixed $status_color
+ *
+ * @mixin \Eloquent
  *
  */
 class Company extends Eloquent
 {
     
     protected $connection = 'elasticsearch';
+    
+    //model definition =====================================
+    public static $statuses = [
+        
+        1 => [
+            'name'       => 'New',
+            'level'      => 1,
+            'color'      => 'text-neutral-500',
+            'time_model' => 'created_at',
+        ],
+    
+    ];
     
     
     //Relationships  =====================================
@@ -42,6 +61,11 @@ class Company extends Eloquent
     public function userLogs()
     {
         return $this->hasMany(UserLog::class);
+    }
+    
+    public function companyLogs()
+    {
+        return $this->hasMany(CompanyLog::class);
     }
     
     public function companyProfile()
@@ -57,6 +81,11 @@ class Company extends Eloquent
     public function photos()
     {
         return $this->morphMany(Photo::class, 'photoable');
+    }
+    
+    public function esPhotos()
+    {
+        return $this->morphMany(EsPhoto::class, 'photoable');
     }
     
     
