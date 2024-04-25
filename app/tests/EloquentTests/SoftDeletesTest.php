@@ -1,9 +1,9 @@
 <?php
 
-use Tests\Models\SoftProduct;
-use Tests\Factories\ProductFactory;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
+use tests\Factories\ProductFactory;
+use tests\Models\SoftProduct;
 
 beforeEach(function () {
     $this->records = 20;

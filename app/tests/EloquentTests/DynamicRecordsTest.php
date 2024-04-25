@@ -1,7 +1,7 @@
 <?php
 
-use Tests\Models\PageHit;
 use PDPhilip\Elasticsearch\Schema\Schema;
+use tests\Models\PageHit;
 
 
 $dataCheck = [

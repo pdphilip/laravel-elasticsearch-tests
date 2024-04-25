@@ -1,10 +1,10 @@
 <?php
 
-use Tests\Models\Product;
-use Tests\Factories\ProductFactory;
+use Illuminate\Support\Facades\DB;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
-use Illuminate\Support\Facades\DB;
+use tests\Factories\ProductFactory;
+use tests\Models\Product;
 
 beforeEach(function () {
     $this->prefix = DB::connection('elasticsearch')->getConfig('index_prefix');

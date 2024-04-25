@@ -1,11 +1,11 @@
 <?php
 
-uses(Tests\TestCase::class)
+uses(tests\TestCase::class)
     ->group('eloquent')
     ->in('EloquentTests');
-uses(Tests\TestCase::class)
+uses(tests\TestCase::class)
     ->group('relationships')
     ->in('RelationshipsTests');
-uses(Tests\TestCase::class)
+uses(tests\TestCase::class)
     ->group('schema')
     ->in('SchemaTests');

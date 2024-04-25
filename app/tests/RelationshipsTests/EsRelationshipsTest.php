@@ -1,18 +1,15 @@
 <?php
 
-use Tests\Factories\CompanyFactory;
-use Tests\Factories\CompanyProfileFactory;
-use Tests\Factories\UserFactory;
-use Tests\Factories\CompanyLogFactory;
-
-use Tests\Models\Company;
-use Tests\Models\CompanyLog;
-use Tests\Models\CompanyProfile;
-use Tests\Models\Avatar;
-use Tests\Models\EsPhoto;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
-use Tests\Migrations\MysqlMigration;
+use tests\Factories\CompanyFactory;
+use tests\Factories\CompanyLogFactory;
+use tests\Factories\CompanyProfileFactory;
+use tests\Models\Avatar;
+use tests\Models\Company;
+use tests\Models\CompanyLog;
+use tests\Models\CompanyProfile;
+use tests\Models\EsPhoto;
 
 $skip = false;
 
@@ -72,7 +69,7 @@ it('should build  ES data', function () {
         $avatar = new Avatar;
         $avatar->url = $company->name.'_pic.jpg';
         $avatar->imageable_id = $companyId;
-        $avatar->imageable_type = 'Tests\Models\Company';
+        $avatar->imageable_type = 'tests\Models\Company';
         $avatar->saveWithoutRefresh();
         
         $j = 0;
@@ -80,7 +77,7 @@ it('should build  ES data', function () {
             $photo = new EsPhoto;
             $photo->url = $company->name.'-photo-'.$j.'.jpg';
             $photo->photoable_id = $companyId;
-            $photo->photoable_type = 'Tests\Models\Company';
+            $photo->photoable_type = 'tests\Models\Company';
             $photo->saveWithoutRefresh();
             $j++;
         }

@@ -1,20 +1,20 @@
 <?php
 
-use Tests\Factories\CompanyFactory;
-use Tests\Factories\CompanyProfileFactory;
-use Tests\Factories\UserFactory;
-use Tests\Factories\UserLogFactory;
-use Tests\Factories\UserProfileFactory;
-use Tests\Models\User;
-use Tests\Models\Company;
-use Tests\Models\UserLog;
-use Tests\Models\UserProfile;
-use Tests\Models\CompanyProfile;
-use Tests\Models\Avatar;
-use Tests\Models\Photo;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
-use Tests\Migrations\MysqlMigration;
+use tests\Factories\CompanyFactory;
+use tests\Factories\CompanyProfileFactory;
+use tests\Factories\UserFactory;
+use tests\Factories\UserLogFactory;
+use tests\Factories\UserProfileFactory;
+use tests\Migrations\MysqlMigration;
+use tests\Models\Avatar;
+use tests\Models\Company;
+use tests\Models\CompanyProfile;
+use tests\Models\Photo;
+use tests\Models\User;
+use tests\Models\UserLog;
+use tests\Models\UserProfile;
 
 $skip = false;
 
@@ -86,7 +86,7 @@ it('should build the mySQL user and ES data', function () {
         $avatar = new Avatar;
         $avatar->url = $company->name.'_pic.jpg';
         $avatar->imageable_id = $companyId;
-        $avatar->imageable_type = 'Tests\Models\Company';
+        $avatar->imageable_type = 'tests\Models\Company';
         $avatar->save();
         
         $j = 0;
@@ -94,7 +94,7 @@ it('should build the mySQL user and ES data', function () {
             $photo = new Photo;
             $photo->url = $company->name.'-photo-'.$j.'.jpg';
             $photo->photoable_id = $companyId;
-            $photo->photoable_type = 'Tests\Models\Company';
+            $photo->photoable_type = 'tests\Models\Company';
             $photo->save();
             $j++;
         }
@@ -118,7 +118,7 @@ it('should build the mySQL user and ES data', function () {
             $avatar = new Avatar;
             $avatar->url = $user->first_name.'_avatar.jpg';
             $avatar->imageable_id = $userId;
-            $avatar->imageable_type = 'Tests\Models\User';
+            $avatar->imageable_type = 'tests\Models\User';
             $avatar->save();
             
             $l = 0;
@@ -126,7 +126,7 @@ it('should build the mySQL user and ES data', function () {
                 $photo = new Photo;
                 $photo->url = $user->first_name.'-photo-'.$l.'.jpg';
                 $photo->photoable_id = $userId;
-                $photo->photoable_type = 'Tests\Models\User';
+                $photo->photoable_type = 'tests\Models\User';
                 $photo->save();
                 $l++;
             }

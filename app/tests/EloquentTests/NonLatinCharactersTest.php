@@ -1,8 +1,8 @@
 <?php
 
-use Tests\Models\Post;
-use Tests\Factories\PostFactory;
 use PDPhilip\Elasticsearch\Schema\Schema;
+use tests\Factories\PostFactory;
+use tests\Models\Post;
 
 $skip = false;
 

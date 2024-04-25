@@ -1,14 +1,14 @@
 <?php
 
-use Tests\Models\Client;
-use Tests\Models\ClientLog;
-use Tests\Models\ClientProfile;
-use Tests\Factories\ClientFactory;
-use Tests\Factories\ClientLogFactory;
-use Tests\Factories\ClientProfileFactory;
-use Tests\Factories\CompanyFactory;
-use Tests\Models\Company;
 use PDPhilip\Elasticsearch\Schema\Schema;
+use tests\Factories\ClientFactory;
+use tests\Factories\ClientLogFactory;
+use tests\Factories\ClientProfileFactory;
+use tests\Factories\CompanyFactory;
+use tests\Models\Client;
+use tests\Models\ClientLog;
+use tests\Models\ClientProfile;
+use tests\Models\Company;
 
 
 beforeEach(function () {

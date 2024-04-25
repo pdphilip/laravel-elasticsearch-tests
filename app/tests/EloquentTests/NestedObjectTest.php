@@ -1,9 +1,9 @@
 <?php
 
-use Tests\Models\BlogPost;
-use Tests\Factories\BlogPostFactory;
 use PDPhilip\Elasticsearch\Schema\IndexBlueprint;
 use PDPhilip\Elasticsearch\Schema\Schema;
+use tests\Factories\BlogPostFactory;
+use tests\Models\BlogPost;
 
 
 $fieldChecks = [
