@@ -17,6 +17,7 @@ Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.c
 ```bash
 git clone https://github.com/pdphilip/laravel-elasticsearch-tests.git my_tests
 cd my_tests
+rm -rf .git
 composer install
 
 cp .env.example .env
