@@ -2,7 +2,7 @@
 
 namespace Tests\Models;
 
-use Carbon\Carbon;
+
 use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**

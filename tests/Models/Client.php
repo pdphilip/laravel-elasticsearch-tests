@@ -2,7 +2,6 @@
 
 namespace Tests\Models;
 
-
 use MongoDB\Laravel\Eloquent\Model as Eloquent;
 use PDPhilip\Elasticsearch\Eloquent\HybridRelations;
 

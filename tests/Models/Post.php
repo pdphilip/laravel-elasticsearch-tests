@@ -2,8 +2,6 @@
 
 namespace Tests\Models;
 
-
-use Carbon\Carbon;
 use PDPhilip\Elasticsearch\Eloquent\Model;
 
 
@@ -16,8 +14,8 @@ use PDPhilip\Elasticsearch\Eloquent\Model;
  * @property string $title
  * @property string $slug
  * @property string $content
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  *
  */
 class Post extends Model

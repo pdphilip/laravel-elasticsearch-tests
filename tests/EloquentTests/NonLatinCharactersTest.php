@@ -44,12 +44,12 @@ it('should find posts with where() having cyrillics', function () {
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });
 
-it('should find posts with  where() having nordic characters', function () {
+it('should find posts with where() having nordic characters', function () {
     $posts = Post::where('title', 'gjøre')->get();
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });
 
-it('should find posts with  where() having arabic characters', function () {
+it('should find posts with where() having arabic characters', function () {
     $posts = Post::where('title', 'الحروف')->get();
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });
@@ -59,12 +59,12 @@ it('should find posts with term() having cyrillics', function () {
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });
 
-it('should find posts with  term() having nordic characters', function () {
+it('should find posts with term() having nordic characters', function () {
     $posts = Post::term('gjøre')->search();
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });
 
-it('should find posts with  term() having arabic characters', function () {
+it('should find posts with term() having arabic characters', function () {
     $posts = Post::term('الحروف')->search();
     $this->assertTrue(count($posts) === 10, 'Count is '.count($posts));
 });

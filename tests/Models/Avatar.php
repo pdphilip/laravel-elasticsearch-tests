@@ -2,7 +2,6 @@
 
 namespace Tests\Models;
 
-
 use PDPhilip\Elasticsearch\Eloquent\Model as Eloquent;
 
 /**

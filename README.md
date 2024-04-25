@@ -21,8 +21,9 @@ cd html
 #### Require deps:
 ```bash
 composer remove phpunit/phpunit
-composer pestphp/pest-plugin-laravel
-composer require rkondratuk/geo-math-php pdphilip/elasticsearch
+composer require pestphp/pest-plugin-laravel
+composer require rkondratuk/geo-math-php 
+composer require pdphilip/laravel-elasticsearch
 ```
 
 #### Require Mongo (optional)
