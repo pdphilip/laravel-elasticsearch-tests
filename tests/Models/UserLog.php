@@ -2,7 +2,7 @@
 
 namespace Tests\Models;
 
-use App\Casts\EncryptCast;
+use Tests\Models\Casts\EncryptCast;
 use Illuminate\Support\Carbon;
 use PDPhilip\Elasticsearch\Eloquent\Model;
 
