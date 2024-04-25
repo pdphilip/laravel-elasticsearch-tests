@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Models;
+namespace Tests\Models;
 
 use App\Casts\EncryptCast;
 use Illuminate\Support\Carbon;

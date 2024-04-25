@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Migrations;
+namespace Tests\Migrations;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

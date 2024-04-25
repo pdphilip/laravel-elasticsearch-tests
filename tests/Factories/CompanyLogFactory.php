@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Factories;
+namespace Tests\Factories;
 
+use Tests\Models\CompanyLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
-use tests\Models\CompanyLog;
 
 class CompanyLogFactory extends Factory
 {

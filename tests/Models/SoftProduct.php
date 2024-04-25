@@ -1,8 +1,10 @@
 <?php
 
-namespace tests\Models;
+namespace Tests\Models;
 
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use PDPhilip\Elasticsearch\Eloquent\Model;
 use PDPhilip\Elasticsearch\Eloquent\SoftDeletes;
 

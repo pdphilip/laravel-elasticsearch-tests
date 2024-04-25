@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Models;
+namespace Tests\Models;
 
 
 use MongoDB\Laravel\Eloquent\Model as Eloquent;

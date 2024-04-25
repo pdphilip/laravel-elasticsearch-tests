@@ -12,18 +12,40 @@ Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.c
 - "laravel/framework": "^10.10"
 ```
 
-## Installation
+### Clone
 
 ```bash
 git clone https://github.com/pdphilip/laravel-elasticsearch-tests.git my_tests
 cd my_tests
 rm -rf .git
-composer install
+```
+### Select laravel version
+Laravel 8
+```bash
+cp 8.composer.json composer.json 
+```
+Laravel 9
+```bash
+cp 7.composer.json composer.json 
+```
+Laravel 10
+```bash
+cp 10.composer.json composer.json 
+```
+Laravel 11
+```bash
+cp 11.composer.json composer.json 
+```
 
+### Install
+
+```bash
+composer install
 cp .env.example .env
 php artisan key:generate
-
 ```
+
+
 
 ### Edit .env file to add database credentials (mongodb optional)
 
@@ -53,12 +75,23 @@ ES_SSL_CA=
 ES_INDEX_PREFIX=laravel_es_test
 
 ```
-### Upgrade/Downgrade Laravel
+
+### Install Elasticsearch
 
 ```bash
-composer require laravel/framework:8
+composer require pdphilip/elasticsearch
 ```
+It will pull the current 3.x version for your laravel version
 
+### Install Mongo (optional)
+Laravel 8 and 9
+```bash
+composer require jenssegers/mongodb
+```
+Laravel 10+
+```bash
+composer require mongodb/laravel-mongodb
+```
 
 ### Run migrations
 
