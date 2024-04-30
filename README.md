@@ -26,7 +26,7 @@ composer remove phpunit/phpunit
 composer require pestphp/pest
 composer require pestphp/pest-plugin-laravel
 composer require rkondratuk/geo-math-php 
-composer require pdphilip/laravel-elasticsearch
+composer require pdphilip/elasticsearch
 ```
 
 #### Require Mongo (optional)
