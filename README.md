@@ -1,6 +1,8 @@
 # Laravel-Elasticsearch Package Tests (PEST)
 
-Docker environment [https://github.com/pdphilip/docker-LAMP-MR](https://github.com/pdphilip/docker-LAMP-MR)
+This is a test suite for the [Laravel-Elasticsearch](https://github.com/pdphilip/laravel-elasticsearch) package. Feel free to use it as a reference for your own tests or as a guide to understanding the package's features.
+
+PRs are welcome!
 
 ## Install Laravel
 
@@ -20,17 +22,13 @@ cd html
 ```
 #### Require deps:
 ```bash
-composer remove phpunit/phpunit
+composer require pestphp/pest
 composer require pestphp/pest-plugin-laravel
 composer require rkondratuk/geo-math-php 
 composer require pdphilip/laravel-elasticsearch
 ```
 
 #### Require Mongo (optional)
-Laravel 8 and 9
-```bash
-composer require jenssegers/mongodb
-```
 Laravel 10+
 ```bash
 composer require mongodb/laravel-mongodb
@@ -141,15 +139,6 @@ return [
 
 ```
 
-
-
-### Run migrations
-
-```bash
-
-php artisan migrate
-
-```
 
 ### Run tests
 

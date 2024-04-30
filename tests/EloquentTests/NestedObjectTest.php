@@ -237,5 +237,5 @@ it('should filter nested values', function () use (&$fieldChecks) {
 
 it('should clean up', function () {
     BlogPost::deleteIndexIfExists();
-    $this->assertFalse(Schema::hasIndex('soft_products'));
+    $this->assertFalse(Schema::hasIndex('blog_posts'));
 });

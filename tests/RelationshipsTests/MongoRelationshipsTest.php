@@ -23,7 +23,7 @@ beforeEach(function () {
     
 });
 
-$mongoInstalled = class_exists('MongoDB\Laravel\Eloquent\Model') || class_exists('Jenssegers\Mongodb\Eloquent\Model');
+$mongoInstalled = class_exists('MongoDB\Laravel\Eloquent\Model');
 
 
 it('should truncate all our models to start fresh', function () {
