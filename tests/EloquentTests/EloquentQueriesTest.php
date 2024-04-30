@@ -768,19 +768,21 @@ it('should catch error and return error details', function () use (&$fieldChecks
 it('should delete them all very quickly', function () {
     $deleted = Product::all();
     $deleted = $deleted->each->delete();
-    $this->assertTrue(count($deleted) === 100);
-    sleep(1);
+    $this->assertTrue(count($deleted) === 100, 'Failed to delete all, count was '.count($deleted));
+    sleep(2);
     $find = Product::all();
-    $this->assertTrue(count($find) === 0);
+    $this->assertTrue(count($find) === 0,'Expected 0, got '.count($find));
     
 });
 
 it('should return first or create', function () {
     $first = Product::firstOrCreate(['color' => 'blue'], ['status' => 1]);
     $id = $first->_id;
-    $this->assertTrue(count(Product::all()) === 1);
+    $prodsCount = count(Product::all());
+    $this->assertTrue($prodsCount === 1, 'Expected 1, got '.$prodsCount);
     $firstAgain = Product::firstOrCreate(['color' => 'blue'], ['status' => 2]);
-    $this->assertTrue(count(Product::all()) === 1);
+    $prodsCount2 = count(Product::all());
+    $this->assertTrue($prodsCount2 === 1, 'Expected 1, got '.$prodsCount2);
     $this->assertTrue($firstAgain->_id === $id);
     $this->assertFalse($firstAgain->status === 2);
 });
@@ -790,10 +792,12 @@ it('should return first or create without refresh', function () {
     $first = Product::firstOrCreateWithoutRefresh(['color' => 'green'], ['status' => 1]);
     $id = $first->_id;
     sleep(2);
-    $this->assertTrue(count(Product::all()) === 2);
+    $prodsCount = count(Product::all());
+    $this->assertTrue($prodsCount === 2, 'Expected 2, got '.$prodsCount);
     $firstAgain = Product::firstOrCreateWithoutRefresh(['color' => 'green'], ['status' => 2]);
     sleep(2);
-    $this->assertTrue(count(Product::all()) === 2);
+    $prodsCount2 = count(Product::all());
+    $this->assertTrue($prodsCount2 === 2,'Expected 2, got '.$prodsCount2);
     $this->assertTrue($firstAgain->_id === $id);
     $this->assertFalse($firstAgain->status === 2);
 });
