@@ -22,6 +22,7 @@ cd html
 ```
 #### Require deps:
 ```bash
+composer remove phpunit/phpunit
 composer require pestphp/pest
 composer require pestphp/pest-plugin-laravel
 composer require rkondratuk/geo-math-php 
