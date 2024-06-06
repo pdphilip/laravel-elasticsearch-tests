@@ -162,6 +162,33 @@ it('should find the index and certain fields', function () {
     
 });
 
+it('should create an index will all numeric type mappings', function () {
+    Schema::deleteIfExists('nums_lfg');
+    Schema::create('nums_lfg', function (IndexBlueprint $index) {
+        $index->long('lfg_long');
+        $index->integer('lfg_int');
+        $index->short('lfg_short');
+        $index->byte('lfg_byte');
+        $index->double('lfg_double');
+        $index->float('lfg_float');
+        $index->halfFloat('lfg_half_float');
+        $index->scaledFloat('lfg_scaled_float', 140);
+    });
+    
+    $mappings = Schema::getMappings('nums_lfg');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_long']['type'] == 'long');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_int']['type'] == 'integer');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_short']['type'] == 'short');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_byte']['type'] == 'byte');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_double']['type'] == 'double');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_float']['type'] == 'float');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_half_float']['type'] == 'half_float');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_scaled_float']['type'] == 'scaled_float');
+    $this->assertTrue($mappings[$this->prefix.'_nums_lfg']['mappings']['properties']['lfg_scaled_float']['scaling_factor'] == 140);
+    //clean up
+    Schema::deleteIfExists('nums_lfg');
+});
+
 it('should not be able to delete an index that does not exist', function () {
     $deleted = Schema::deleteIfExists('contactz');
     $this->assertFalse($deleted);
