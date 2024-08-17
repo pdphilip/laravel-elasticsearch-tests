@@ -31,8 +31,8 @@ $fieldChecks = [
         '100_500'  => 0,
         '500_1000' => 0,
         '1000+'    => 0,
-    
-    
+
+
     ],
     'isActiveAndStockGreaterThan50' => 0,
     'isActiveOrStockGreaterThan50'  => 0,
@@ -80,7 +80,7 @@ it('should create products', function () use (&$fieldChecks) {
     $lastWeek = Carbon::now()->subWeek();
     $fieldChecks['time_checks']['last_order_gte_ts'] = $lastWeek->getTimestamp();
     $fieldChecks['time_checks']['last_order_gte_ms'] = $lastWeek->getTimestampMs();
-    
+
     $i = 0;
     while ($i < 100) {
         $product = $pf->definition();
@@ -94,7 +94,7 @@ it('should create products', function () use (&$fieldChecks) {
             $product['description'] = $fieldChecks['description_test_two'];
         }
         if ($i % 10 == 0) {
-            
+
             $product['color'] = 'blue';
             $product['manufacturer']['country'] = 'Denmark';
             if (!$product['is_active']) {
@@ -171,12 +171,12 @@ it('should create products', function () use (&$fieldChecks) {
         $fieldChecks['time_checks']['last_order_datetime'] = $product['last_order_datetime'];
         $fieldChecks['time_checks']['last_order_ts'] = $product['last_order_ts'];
         $fieldChecks['time_checks']['last_order_ms'] = $product['last_order_ms'];
-        
+
         if ($product['last_order_ts'] >= $fieldChecks['time_checks']['last_order_gte_ts']) {
             $fieldChecks['time_checks']['last_order_gte_count']++;
         }
-        
-        
+
+
         $i++;
     }
     // Sleep to allow ES to catch up
@@ -235,14 +235,52 @@ it('should convert to DSL', function () use (&$fieldChecks) {
 
 it('should do multiple aggs at once', function () use (&$fieldChecks) {
     $aggs = Product::whereIn('color', ['red', 'green'])->agg(['count', 'max', 'min', 'sum'], 'orders');
-    
+
     $this->assertTrue($aggs['min_orders']['value'] == $fieldChecks['matrix']['min']);
     $this->assertTrue($aggs['count_orders']['value'] == $fieldChecks['matrix']['count']);
     $this->assertTrue($aggs['sum_orders']['value'] == $fieldChecks['matrix']['sum']);
     $this->assertTrue($aggs['max_orders']['value'] == $fieldChecks['matrix']['max']);
-    
+
 });
 
+
+//----------------------------------------------------------------------
+// Aggregations on more than one field
+//----------------------------------------------------------------------
+
+it('should sum multiple fields in one call', function () {
+
+    $orders = Product::sum('orders');
+    $price = Product::sum('price');
+    $aggs = Product::sum(['orders', 'price']);
+    $this->assertTrue($aggs['sum_orders'] == $orders);
+    $this->assertTrue($aggs['sum_price'] == $price);
+
+});
+
+it('should min multiple fields in one call', function () {
+    $orders = Product::min('orders');
+    $price = Product::min('price');
+    $aggs = Product::min(['orders', 'price']);
+    $this->assertTrue($aggs['min_orders'] == $orders);
+    $this->assertTrue($aggs['min_price'] == $price);
+});
+
+it('should max multiple fields in one call', function () {
+    $orders = Product::max('orders');
+    $price = Product::max('price');
+    $aggs = Product::max(['orders', 'price']);
+    $this->assertTrue($aggs['max_orders'] == $orders);
+    $this->assertTrue($aggs['max_price'] == $price);
+});
+
+it('should avg multiple fields in one call', function () {
+    $orders = Product::avg('orders');
+    $price = Product::avg('price');
+    $aggs = Product::avg(['orders', 'price']);
+    $this->assertTrue($aggs['avg_orders'] == $orders);
+    $this->assertTrue($aggs['avg_price'] == $price);
+});
 
 it('should clean up', function () {
     Product::deleteIndexIfExists();
